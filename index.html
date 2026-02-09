@@ -142,6 +142,16 @@ width="100%" height="250"></iframe>
 
 <script>
 AOS.init();
+  
+  // Ambil nama dari URL
+const url = new URLSearchParams(window.location.search);
+const nama = url.get('to');
+
+if(nama){
+document.getElementById("tamu").innerText =
+"Kepada Yth: " + decodeURIComponent(nama);
+}
+
 
 function openInvite(){
 
@@ -158,21 +168,22 @@ window.scrollTo(0,0);
 
 function rsvpWA(){
 
-let pesan = "Halo, saya akan hadir di acara Andi & Siti";
+const url = new URLSearchParams(window.location.search);
+const nama = url.get('to') || "Tamu";
+
+let pesan = `Halo, saya ${nama} akan hadir di acara Andi & Siti`;
+
 let nomor = "6281234567890";
 
 window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`);
 
 }
-</script>
-  // Ambil nama dari URL
-const url = new URLSearchParams(window.location.search);
-const nama = url.get('to');
 
-if(nama){
-document.getElementById("tamu").innerText =
-"Kepada Yth: " + decodeURIComponent(nama);
+
+window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`);
+
 }
+</script>
 
 </body>
 </html>
