@@ -165,6 +165,14 @@ window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`);
 
 }
 </script>
+  // Ambil nama dari URL
+const url = new URLSearchParams(window.location.search);
+const nama = url.get('to');
+
+if(nama){
+document.getElementById("tamu").innerText =
+"Kepada Yth: " + decodeURIComponent(nama);
+}
 
 </body>
 </html>
